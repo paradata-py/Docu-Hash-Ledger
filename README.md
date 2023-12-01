@@ -30,20 +30,38 @@ DocuHash Ledger is a smart contract on the Ethereum blockchain, tailored for doc
     npm install
     ```
 
-## Usage
-1. **Compile the contract with Yarn:**
+3. **Install dotenv:**
     ```bash
-    yarn hardhat compile
+    npm i dotenv
+    ```
+    
+## Configuration and Setup
+1. **Generate a new private key:**
+    ```bash
+    npx hardhat generate-keypair
+    ```
+   Copy the private key from the result.
+
+2. **Create a `.env` file:**
+    Add your private key to the `.env` file like this:
+    ```
+    PRIVATE_KEY=<Your Private Key>
+    ```
+
+## Usage
+1. **Compile the contract with NPX:**
+    ```bash
+    npx hardhat compile
     ```
 
 2. **Run specific tests:**
     ```bash
-    yarn hardhat test test/DocuHashLedger.test.js
+    npx hardhat test test/DocuHashLedger.test.js
     ```
 
 3. **Deploy the contract:**
     ```bash
-    yarn hardhat run scripts/deploy.js --network paradata
+    npx hardhat run scripts/deploy.js --network paradata
     ```
 
 ## Contract Functions
@@ -53,10 +71,10 @@ DocuHash Ledger is a smart contract on the Ethereum blockchain, tailored for doc
 ## Events
 - `DocumentHashStored(string documentId, string documentHash)`: Triggered when a new document hash is stored.
 
-## Configuration
+## Hardhat Configuration (`hardhat.config.js`)
 Customize the Hardhat settings in `hardhat.config.js`. Default network configuration:
 - Network Name: Parada
-- URL: http://181.126.80.193
+- URL: http://181.126.80.193:8545
 - Chain ID: 1217
 
 ## License
